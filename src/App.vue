@@ -23,26 +23,35 @@ export default{
         },1000);
     },
     methods:{
-        getWeather(){
-          if(this.city.trim().length < 2){
-              this.error='input field city must more than 2 character'
-              return false;
-          }else{
-            this.error=''
-            return false
+        getValidateCity(lengthChar){
+           const char=lengthChar
+          if(this.city.trim().length < char){
+              this.error=`input field city must more than ${char} character`
+              return;
           }
-        }
+        },
+      validateRegion(){
+          const lengthChar=5
+         this.getValidateCity(lengthChar)
+         const textLengthCity=this.cityName.trim().length
+         if(textLengthCity < lengthChar){
+            return this.error;
+         }
+          // if(textLengthCity == 0)alert('zero null')
+            this.error=''
+         return 'region: '+this.cityName
+      }  
     },
     watch(){
         this.city;
-        this.jam;
+        // this.jam;
     }
 }
 </script>
 
 <template>
   <div class="wrapper">
-   <h1>aplikasi {{ city === '' ?'wates city yogyakarta':cityName}}</h1>
+   <h1>{{ city === '' ?'region : wates city yogyakarta':validateRegion()}}</h1>
    <h1>{{ jam }}</h1>
    <p>belajar vue js</p>
    <!-- i dont know what is this -->
@@ -50,9 +59,9 @@ export default{
    <!-- model data binding -->
    <input type="text" :placeholder="'city'" v-model="this.city">
    <!-- <button v-show="city !=''">tulis</button> -->
-   <button v-if="city !=''" @click="getWeather()">send</button>
+   <button v-if="city !=''">send</button>
    <button disabled v-else>tulis</button>
-    <p class="error-text">{{ this.error }}</p>
+    <p class="error-text">{{ this.city.trim().length==0?this.error='':this.error }}</p>
   </div>
 </template>
 
