@@ -63,9 +63,14 @@ export default{
    <button disabled v-else>tulis</button>
     <p class="error-text">{{ this.city.trim().length==0?this.error='':this.error }}</p>
   </div>
+  <div class="weather-wrapper" id="id21af2c089eebf" a='{"t":"b","v":"1.2","lang":"id","locs":[],"ssot":"c","sics":"ds","cbkg":"#7B1FA2","cfnt":"#FFFFFF","ceb":"#FFFFFF","cef":"#000000"}'><a href="https://cuacalab.id/widget/">Weather widget html for website by cuacalab.id</a></div>
+ 
 </template>
 
 <style scoped>
+.weather-wrapper{
+  position: relative;
+}
 .error-text{
   text-align: center;
   color: silver;
