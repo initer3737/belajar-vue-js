@@ -1,23 +1,38 @@
 <script>
+import axios from 'axios'
 //untuk mengimport komponeny
 // import HelloWorld from './components/HelloWorld.vue'
 //https://vuejs.org/guide/essentials/reactivity-fundamentals.html#declaring-reactive-state
 // https://router.vuejs.org/guide/essentials/navigation.html
 //https://youtu.be/TiBCLraUFvA
+//https://youtu.be/Tr21cH-kjGs
+//importirovat
 export default{
     data(){
       return{
         city:'',
         error:'',
-        jam:new Date().toLocaleTimeString()
+        jam:new Date().toLocaleTimeString(),
+        users:null
       }
     },
     computed:{
       cityName(){
         return this.city
+      },
+      getUsername(){
+        return this.users.data[0].username
+      },
+      getUseremail(){
+        return this.users.data[0].email
+      },
+      getUserFirstname(){
+        return this.users.data[0].name
       }
     },
     mounted(){
+      const url=`https://jsonplaceholder.typicode.com/users`
+      this.getUsers(url)
       setInterval(()=>{
           this.jam=new Date().toLocaleTimeString()
         },1000);
@@ -40,6 +55,11 @@ export default{
           // if(textLengthCity == 0)alert('zero null')
             this.error=''
          return 'region: '+this.cityName
+      },
+      async getUsers(url){
+          const data=await axios.get(url)
+              this.users={...data}
+          console.log('res from api will be : ',this.users)
       }  
     },
     watch(){
@@ -64,12 +84,22 @@ export default{
     <p class="error-text">{{ this.city.trim().length==0?this.error='':this.error }}</p>
   </div>
   <div class="weather-wrapper" id="id21af2c089eebf" a='{"t":"b","v":"1.2","lang":"id","locs":[],"ssot":"c","sics":"ds","cbkg":"#7B1FA2","cfnt":"#FFFFFF","ceb":"#FFFFFF","cef":"#000000"}'><a href="https://cuacalab.id/widget/">Weather widget html for website by cuacalab.id</a></div>
- 
+ <h1>consume api</h1>
+ <hr>
+ <div class="" v-if="this.users != null">
+   <p>{{this.users.data[0]}}</p>
+   <p>username {{getUsername}}</p>
+   <p>name {{getUserFirstname}}</p>
+   <p>email {{getUseremail}}</p>
+ </div>
+ <hr>
 </template>
 
 <style scoped>
 .weather-wrapper{
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .error-text{
   text-align: center;
