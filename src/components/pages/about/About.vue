@@ -25,6 +25,7 @@ document.addEventListener('mousemove',(e)=>{
     display: flex;
     flex-flow: column nowrap;
     gap: 14px;
+    pointer-events: none;
 }
 .title-gideon{
     margin-left: 12px;
