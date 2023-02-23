@@ -36,16 +36,23 @@
 .nav{
   position: fixed;
   top: 0;
-  left: 12px;
+  left: 0;
   display: flex;
   gap: 9px;
   color: white;
   font-size: 21px;
-  text-decoration: none;
   z-index: 999;
+  padding: 16px;
+  background: rgba(0,0,0,.5);
+  min-width: 100%;
+}
+.nav-link{
+  text-decoration: none !important;
+  transition: all 2s;
 }
 .nav-link:hover{
-  color: black;
+  color: blue !important;
+  transition: all .2s;
   /* transform: translateY(23px); */
 }
 .nav-link:visited{
