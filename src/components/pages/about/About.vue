@@ -13,6 +13,7 @@ document.addEventListener('mousemove',(e)=>{
     object-fit: cover;
     object-position: center;
     width: 100%;
+    min-height: 100%;
     filter: brightness(45%);
     z-index: -1;
 }
