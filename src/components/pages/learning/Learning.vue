@@ -148,7 +148,7 @@ export default{
   color: aliceblue;
   font-size: 19px;
   cursor: pointer;
-  /* animation: kelip-button alternate-reverse infinite 2s; */
+  animation: kelip-button alternate-reverse infinite 2s;
 }
 .counter-app-container{
   display: flex;
