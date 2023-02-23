@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios'
+import cenit from '/src/assets/button.mp3'
 //untuk mengimport komponeny
 // import HelloWorld from './components/HelloWorld.vue'
 //https://vuejs.org/guide/essentials/reactivity-fundamentals.html#declaring-reactive-state
@@ -7,16 +8,30 @@ import axios from 'axios'
 //https://youtu.be/TiBCLraUFvA
 //https://youtu.be/Tr21cH-kjGs
 //importirovat
+//not shame as react js component name in vue js depend on the filename
 export default{
     data(){
       return{
         city:'',
         error:'',
         jam:new Date().toLocaleTimeString(),
-        users:null
+        users:null,
+        count:0
       }
     },
     computed:{
+        //if u need to perform data manipulation from data(){property} via computed property
+      counting:{
+          //getter method
+        get(){
+          return this.count
+        },
+        //setter method
+        set(value){
+          this.count+=value
+        }
+      },
+      //if u need to perform getting data from data(){property} via computed property
       cityName(){
         return this.city
       },
@@ -28,9 +43,15 @@ export default{
       },
       getUserFirstname(){
         return this.users.data[0].name
-      }
+      },
+      getJam(){
+        return this.jam
+      },
     },
     mounted(){
+        //mounted is like useEffect in react its perform what is the first we do as web developper 
+        //when this page are access by the user
+        //so i will perform simple get request from api endpoint and then deliver it to the user interface 
       const url=`https://jsonplaceholder.typicode.com/users`
       this.getUsers(url)
       setInterval(()=>{
@@ -38,6 +59,17 @@ export default{
         },1000);
     },
     methods:{
+      cenit(src){
+        return new Audio(src)
+      },
+      countingApp(){
+          //use the setter method on this methods {countingApp} 
+          //nb : computed method are to perform reactive value it mean if u retrive
+          // data or send data to api it will automatic update without refreshing the browser 
+          //it like react js useEffect[is to monitoring state] && useState[is like re render data when state got new value/mutating ]
+        this.counting=1 //setter
+        this.cenit(cenit).play()
+      },
         getValidateCity(lengthChar){
            const char=lengthChar
           if(this.city.trim().length < char){
@@ -62,6 +94,7 @@ export default{
           console.log('res from api will be : ',this.users)
       }  
     },
+    //i dont know yet watch method is for what ,maybe latter
     watch(){
         this.city;
         // this.jam;
@@ -72,7 +105,8 @@ export default{
 <template>
   <div class="wrapper">
    <h1>{{ city === '' ?'region : wates city yogyakarta':validateRegion()}}</h1>
-   <h1>{{ jam }}</h1>
+   <h1>{{ getJam }}</h1>
+   <p>20 &deg;F</p>
    <p>belajar vue js</p>
    <!-- i dont know what is this -->
    <!-- <input type="text" :placeholder="'tulis'" @input="this.city=$event.target.value"> -->
@@ -86,16 +120,52 @@ export default{
   <div class="weather-wrapper" id="id21af2c089eebf" a='{"t":"b","v":"1.2","lang":"id","locs":[],"ssot":"c","sics":"ds","cbkg":"#7B1FA2","cfnt":"#FFFFFF","ceb":"#FFFFFF","cef":"#000000"}'><a href="https://cuacalab.id/widget/">Weather widget html for website by cuacalab.id</a></div>
  <h1>consume api</h1>
  <hr>
- <div class="" v-if="this.users != null">
+ <div class="consume-api-container" v-if="this.users != null">
    <p>{{this.users.data[0]}}</p>
    <p>username {{getUsername}}</p>
    <p>name {{getUserFirstname}}</p>
    <p>email {{getUseremail}}</p>
  </div>
  <hr>
+<div class="counter-app-container">
+  <h1>counter app</h1>
+ <div class="counter-child">
+      {{ counting }}
+    <button @click="countingApp()">counter app</button>
+ </div>
+</div>
+<hr>
 </template>
 
 <style scoped>
+.consume-api-container{
+  margin: 12px;
+}
+.counter-child button{
+  background: linear-gradient(45deg , blue ,silver);
+  padding: 14px;
+  border-radius: 5px;
+  color: aliceblue;
+  font-size: 19px;
+  cursor: pointer;
+  animation: kelip-button alternate-reverse infinite 2s;
+}
+.counter-app-container{
+  display: flex;
+  gap: 45px;
+  /* flex-flow: column nowrap; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.counter-child{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 3rem;
+}
 .weather-wrapper{
   position: absolute;
   top: 0;
