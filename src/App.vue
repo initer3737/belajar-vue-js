@@ -18,6 +18,7 @@
   <nav :class="'nav'">
     <router-link to="/" :class="`nav-link ${navigatsiyastil('')}`">home</router-link>
     <router-link to="/about" :class="`nav-link ${navigatsiyastil('about')}`">about</router-link>
+    <router-link to="/harvest" :class="`nav-link ${navigatsiyastil('harvest')}`">harvest</router-link>
   </nav>
 <router-view></router-view>
 </template>

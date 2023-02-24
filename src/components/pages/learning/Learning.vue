@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios'
 import cenit from '/src/assets/button.mp3'
+import { harvest } from '../../globalstate/harvestmoon'
 //untuk mengimport komponeny
 // import HelloWorld from './components/HelloWorld.vue'
 //https://vuejs.org/guide/essentials/reactivity-fundamentals.html#declaring-reactive-state
@@ -16,7 +17,8 @@ export default{
         error:'',
         jam:new Date().toLocaleTimeString(),
         users:null,
-        count:0
+        count:0,
+        harvestmoon:harvest()
       }
     },
     computed:{
@@ -47,6 +49,21 @@ export default{
       getJam(){
         return this.jam
       },
+      getHarvestName(){
+        return this.harvestmoon.get_name
+      },
+      getHarvestHouseLevel(){
+        return this.harvestmoon.get_house
+      },
+      getHarvestWife(){
+         return this.harvestmoon.get_wife
+      },
+      getHarvestExp(){
+         return this.harvestmoon.get_exp
+      },
+      getHarvestSeason(){
+         return this.harvestmoon.get_season
+      },
     },
     mounted(){
         //mounted is like useEffect in react its perform what is the first we do as web developper 
@@ -69,6 +86,14 @@ export default{
           //it like react js useEffect[is to monitoring state] && useState[is like re render data when state got new value/mutating ]
         this.counting=1 //setter
         this.cenit(cenit).play()
+      },
+      incrementExp(){
+        this.cenit(cenit).play()
+        return this.harvestmoon.incrementExp(1)
+      },
+      decrementExp(){
+        this.cenit(cenit).play()
+        return this.harvestmoon.decrementExp(1)
       },
         getValidateCity(lengthChar){
            const char=lengthChar
@@ -135,7 +160,19 @@ export default{
  </div>
 </div>
 <hr>
-
+<div class="harvest-moon-container">
+  <h1>harvest moon state management pinia</h1>
+ <div class="harvest-moon-child">
+   <h3>name: {{ getHarvestName }}</h3>
+   <h3>wife: {{ getHarvestWife }}</h3>
+   <h3>exp: {{ getHarvestExp }}</h3>
+   <h3>season: {{ getHarvestSeason }}</h3>
+   <h3>house level: {{ getHarvestHouseLevel }}</h3>
+   <button @click="incrementExp()">add exp</button>
+   <button @click="decrementExp()">subtract exp</button>
+  </div>
+</div>
+<hr>
 </template>
 <style scoped>
 .consume-api-container{
@@ -150,6 +187,32 @@ export default{
   cursor: pointer;
   animation: kelip-button alternate-reverse infinite 2s;
 }
+.harvest-moon-container{
+  display: flex;
+  gap: 45px;
+  flex-flow: column nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.harvest-moon-child{
+  /* display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  font-family: Georgia, 'Times New Roman', Times, serif; */
+  font-size: 2rem;
+}
+.harvest-moon-child button{
+  background: linear-gradient(45deg , blue ,silver);
+  padding: 14px;
+  border-radius: 5px;
+  color: aliceblue;
+  font-size: 19px;
+  cursor: pointer;
+  animation: kelip-button alternate-reverse infinite 2s;
+  margin: 12px;
+}
 .counter-app-container{
   display: flex;
   gap: 45px;
@@ -157,6 +220,7 @@ export default{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 .counter-child{
   display: flex;
