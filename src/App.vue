@@ -16,14 +16,19 @@
 <template>
   <!-- router-view is to render the component in the routes directory depent on on the route-->
   <nav :class="'nav'">
+    <div class="cling"></div>
     <router-link to="/" :class="`nav-link ${navigatsiyastil('')}`">home</router-link>
     <router-link to="/about" :class="`nav-link ${navigatsiyastil('about')}`">about</router-link>
     <router-link to="/harvest" :class="`nav-link ${navigatsiyastil('harvest')}`">harvest</router-link>
   </nav>
 <router-view></router-view>
-</template>
+</template> 
 
 <style>
+.cling{
+  width: 12px;
+  height: 100%;
+}
 /* by default style are global */
 .active{
   animation: aktif alternate 2s infinite;
