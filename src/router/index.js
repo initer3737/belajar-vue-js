@@ -2,6 +2,7 @@ import About from '../components/pages/about/About.vue'
 import Learning from '../components/pages/learning/Learning.vue'
 import Harvest from '../components/pages/harvestmoon/Harvest.vue'
 import NotFound from '../components/pages/notfound/NotFound.vue'
+import TodoList from '../components/pages/todolist/TodoList.vue'
 import Hello from '../components/HelloWorld.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -21,6 +22,9 @@ const routes=[
     },
     {
         path:'/hello',component:Hello,name:'hello'
+    },
+    {
+        path:'/todo',component:TodoList,name:'todo'
     },
     {
         path:'/:pathMatch(.*)*',component:NotFound,name:'not found'

@@ -20,23 +20,42 @@
     <router-link to="/" :class="`nav-link ${navigatsiyastil('')}`">home</router-link>
     <router-link to="/about" :class="`nav-link ${navigatsiyastil('about')}`">about</router-link>
     <router-link to="/harvest" :class="`nav-link ${navigatsiyastil('harvest')}`">harvest</router-link>
+    <router-link to="/todo" :class="`nav-link ${navigatsiyastil('todo')}`">todo</router-link>
   </nav>
 <router-view></router-view>
 </template> 
 
 <style>
 .cling{
-  width: 12px;
+  position: absolute;
+  width: 22px;
   height: 100%;
+  top: 0;
+  left:0;
+  background: rgba(255,255,255,1);
+  filter: brightness(35%);
+  transition: all 4s;
+  transform: rotate(5deg);
+  animation: cling 9s infinite ;
+}
+@keyframes cling {
+  from{}
+  to{
+    left: 100%;
+    opacity: 0;
+  }
 }
 /* by default style are global */
 .active{
   animation: aktif alternate 2s infinite;
+  border-bottom: 2px solid white;
+  transition: ease .7s;
 }
 @keyframes aktif {
   from{}
   to{
     color: slateblue;
+    border-color: purple;
   }
 }
 .nav{
