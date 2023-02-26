@@ -25,7 +25,7 @@ const routes=[
         path:'/hello',component:Hello,name:'hello',meta: { requiresAuth: true }
     },
     {
-        path:'/todo',component:TodoList,name:'todo',meta: { requiresAuth: false }
+        path:'/todo',component:TodoList,name:'todo',meta: { requiresAuth: true }
     },
     {
         path:'/login',component:Login,name:'login',meta: { requiresAuth: false }
