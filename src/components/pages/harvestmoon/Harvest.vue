@@ -5,11 +5,11 @@ import xolodno from '../../../assets/xolodno.mp3'
 </script>
 <script>
 import { harvest } from '../../globalstate/harvestmoon';
-document.addEventListener('mousemove',(e)=>{
-    const target=document.getElementById('weejio')
-    target.style.width=-100+e.pageX/100+'vw'
-    target.style.height=-100+e.pageX/100+'vh'
-})
+// document.addEventListener('mousemove',(e)=>{
+//     const target=document.getElementById('weejio')
+//     target.style.width=-100+e.pageX/100+'vw'
+//     target.style.height=-100+e.pageX/100+'vh'
+// })
 //properties
 export default {
     data(){
