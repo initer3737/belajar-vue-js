@@ -3,7 +3,6 @@
 import weejio from '../../../assets/winter.mp4'
 import xolodno from '../../../assets/xolodno.mp3'
 import { debeh } from '../../globalstate/debehlogin';
-import { useRouter } from 'vue-router';
 </script>
 <script>
 // document.addEventListener('mousemove',(e)=>{
@@ -27,9 +26,17 @@ export default {
             this.formdata={...this.formdata,[id]:value}
         },
         onSubmit(e){
-            const {navigasi}=debeh()
+            const {getMsg}=debeh()
             const {username,password}=this.formdata
             this.debeh().login({username,password})
+            const statusChek=String(getMsg).toLocaleLowerCase().indexOf('sukses!')
+            if( statusChek == -1){
+                    alert('pravda')
+                setTimeout(()=>{
+                    this.$router.push('/')
+                },100)
+            } 
+            console.log('status chek',statusChek)
         }
     },
     computed:{
