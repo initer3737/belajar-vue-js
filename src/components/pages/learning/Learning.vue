@@ -25,17 +25,17 @@ export default{
       getStatusCounting(){
         let statusCounting
           if(this.counting <= 12)statusCounting='sangat relax'
-          if(this.counting <= 32)statusCounting='relax'
-          if(this.counting <= 52)statusCounting='lambat'
-          if(this.counting <= 132)statusCounting='sangat lambat'
-          if(this.counting <= 152)statusCounting='sayang'
-          if(this.counting <= 232)statusCounting='sangat sayang'
-          if(this.counting <= 292)statusCounting='lebih sayang'
-          if(this.counting <= 332)statusCounting='ultimate'
-          if(this.counting <= 532)statusCounting='sangat ultimate'
-          if(this.counting <= 632)statusCounting='sopan'
-          if(this.counting <= 732)statusCounting='sangat sopan'
-          if(this.counting >= 732)statusCounting='bener bener sangat sopan'
+          if(this.counting >= 32)statusCounting='relax'
+          if(this.counting >= 52)statusCounting='lambat'
+          if(this.counting >= 132)statusCounting='sangat lambat'
+          if(this.counting >= 152)statusCounting='sayang'
+          if(this.counting >= 232)statusCounting='sangat sayang'
+          if(this.counting >= 292)statusCounting='lebih sayang'
+          if(this.counting >= 332)statusCounting='ultimate'
+          if(this.counting >= 532)statusCounting='sangat ultimate'
+          if(this.counting >= 632)statusCounting='sopan'
+          if(this.counting >= 732)statusCounting='sangat sopan'
+          if(this.counting >= 932)statusCounting='bener bener sangat sopan'
         return statusCounting;
       },
         //if u need to perform data manipulation from data(){property} via computed property
