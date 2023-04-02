@@ -18,10 +18,26 @@ export default{
         jam:new Date().toLocaleTimeString(),
         users:null,
         count:0,
-        harvestmoon:harvest()
+        harvestmoon:harvest(),
       }
     },
     computed:{
+      getStatusCounting(){
+        let statusCounting
+          if(this.counting <= 12)statusCounting='sangat relax'
+          if(this.counting <= 32)statusCounting='relax'
+          if(this.counting <= 52)statusCounting='lambat'
+          if(this.counting <= 132)statusCounting='sangat lambat'
+          if(this.counting <= 152)statusCounting='sayang'
+          if(this.counting <= 232)statusCounting='sangat sayang'
+          if(this.counting <= 292)statusCounting='lebih sayang'
+          if(this.counting <= 332)statusCounting='ultimate'
+          if(this.counting <= 532)statusCounting='sangat ultimate'
+          if(this.counting <= 632)statusCounting='sopan'
+          if(this.counting <= 732)statusCounting='sangat sopan'
+          if(this.counting >= 732)statusCounting='bener bener sangat sopan'
+        return statusCounting;
+      },
         //if u need to perform data manipulation from data(){property} via computed property
       counting:{
           //getter method
@@ -155,6 +171,7 @@ export default{
 <div class="counter-app-container">
   <h1>counter app</h1>
  <div class="counter-child">
+      <h3>{{ getStatusCounting }}</h3>
       {{ counting }} 
     <button @click="countingApp()">counter app</button>
  </div>

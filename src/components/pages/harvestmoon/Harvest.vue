@@ -42,7 +42,7 @@ export default {
        const audio=this.audio
             audio.loop=true
             audio.autoplay=true
-            audio.play()
+            // audio.play()
     },
   unmounted(){
     const audio=this.audio

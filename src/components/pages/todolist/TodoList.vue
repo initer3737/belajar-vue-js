@@ -18,7 +18,7 @@ export default {
         lists:[
             'eat tahu tempe',
             'makan bakso ku waaaah',
-            'nonton anime lycoris recoil'
+            'nonton anime kny season 3'
 
             ]
        }
@@ -43,7 +43,7 @@ export default {
        const audio=this.audio
             audio.loop=true
             audio.autoplay=true
-            audio.play()
+            // audio.play()
     },
   unmounted(){
     const audio=this.audio

@@ -19,7 +19,7 @@ document.addEventListener('mousemove',(e)=>{
        const audio=this.audio
             audio.loop=true
             audio.autoplay=true
-            audio.play()
+            // audio.play()
     },
   unmounted(){
     const audio=this.audio
@@ -59,5 +59,5 @@ document.addEventListener('mousemove',(e)=>{
         <hr>
         <!-- <h3>route will be {{ $route.fullPath.split('/')[1].toLocaleLowerCase() }}</h3> -->
    </div>
-    <video :src="weejio" autoplay loop class="weejio-bg" id="weejio"></video>
+    <video :src="weejio" autoplay loop muted class="weejio-bg" id="weejio"></video>
 </template>    
