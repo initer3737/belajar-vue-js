@@ -1,7 +1,6 @@
 <script setup>
 //setup properties in script tag are use when u want to import some assets
 import weejio from '../../../assets/winter.mp4'
-// import xolodno from '../../../assets/xolodno.mp3'
 import { debeh } from '../../globalstate/debehlogin';
 </script>
 <script>

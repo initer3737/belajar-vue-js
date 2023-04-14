@@ -1,6 +1,6 @@
 <script setup>
 import { harvest } from '../../globalstate/harvestmoon';
-// import weejio from '../../../assets/weejio.mp4'
+import weejio from '../../../assets/weejio.mp4'
 // import swamp from '../../../assets/swamp.mp3'
 document.addEventListener('mousemove',(e)=>{
     const target=document.getElementById('weejio')
