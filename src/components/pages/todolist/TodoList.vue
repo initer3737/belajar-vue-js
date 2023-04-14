@@ -12,7 +12,7 @@ document.addEventListener('mousemove',(e)=>{
 export default {
     data(){
        return {
-        audio:new Audio(xolodno),
+        // audio:new Audio(xolodno),
         formtodo:'',
         lists:[
             'eat tahu tempe',
