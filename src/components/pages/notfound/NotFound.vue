@@ -1,7 +1,7 @@
 <script setup>
 import { harvest } from '../../globalstate/harvestmoon';
 import weejio from '../../../assets/weejio.mp4'
-import swamp from '../../../assets/swamp.mp3'
+// import swamp from '../../../assets/swamp.mp3'
 document.addEventListener('mousemove',(e)=>{
     const target=document.getElementById('weejio')
     target.style.width=-100+e.pageX/100+'vw'
@@ -12,19 +12,19 @@ document.addEventListener('mousemove',(e)=>{
     export default{
         data(){
            return {
-             audio:new Audio(swamp)
+            //  audio:new Audio(swamp)
            }
         },
-    mounted(){
-       const audio=this.audio
-            audio.loop=true
-            audio.autoplay=true
-            // audio.play()
-    },
-  unmounted(){
-    const audio=this.audio
-            audio.pause()
-  } 
+//     mounted(){
+//     //    const audio=this.audio
+//     //         audio.loop=true
+//     //         audio.autoplay=true
+//             // audio.play()
+//     },
+//   unmounted(){
+//     // const audio=this.audio
+//     //         audio.pause()
+//   } 
     }
 </script>
 <style scoped>

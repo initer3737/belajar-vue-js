@@ -1,7 +1,7 @@
 <script setup>
 //setup properties in script tag are use when u want to import some assets
 import weejio from '../../../assets/winter.mp4'
-import xolodno from '../../../assets/xolodno.mp3'
+// import xolodno from '../../../assets/xolodno.mp3'
 import { debeh } from '../../globalstate/debehlogin';
 </script>
 <script>
@@ -14,7 +14,7 @@ import { debeh } from '../../globalstate/debehlogin';
 export default {
     data(){
        return {
-        audio:new Audio(xolodno),
+        // audio:new Audio(xolodno),
         debeh:debeh,
         formdata:formdatas
        }
@@ -52,16 +52,16 @@ export default {
             }
         }
     },
-    mounted(){
-       const audio=this.audio
-            audio.loop=true
-            audio.autoplay=true
-            // audio.play()
-    },
-  unmounted(){
-    const audio=this.audio
-            audio.pause()
-  }  ,
+//     mounted(){
+//     //    const audio=this.audio
+//             // audio.loop=true
+//             // audio.autoplay=true
+//             // audio.play()
+//     },
+//   unmounted(){
+//     // const audio=this.audio
+//     //         audio.pause()
+//   }  ,
   watch:{
     
   }
@@ -91,7 +91,7 @@ let formdatas={
         </div>
        <hr/> 
    </div>
-    <video :src="weejio" autoplay loop class="weejio-bg" id="weejio"></video>
+    <video :src="weejio" autoplay loop muted class="weejio-bg" id="weejio"></video>
 </template> 
 <style scoped>
 .todo-list-container button{

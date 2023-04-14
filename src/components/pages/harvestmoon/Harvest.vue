@@ -1,7 +1,7 @@
 <script setup>
 //setup properties in script tag are use when u want to import some assets
-import weejio from '../../../assets/winter.mp4'
-import xolodno from '../../../assets/xolodno.mp3'
+// import weejio from '../../../assets/winter.mp4'
+// import xolodno from '../../../assets/xolodno.mp3'
 </script>
 <script>
 import { harvest } from '../../globalstate/harvestmoon';
@@ -15,7 +15,7 @@ export default {
     data(){
        return {
         harvestData:harvest,
-        audio:new Audio(xolodno)
+        // audio:new Audio(xolodno)
        }
     },
     computed:{
@@ -38,16 +38,16 @@ export default {
             return this.harvestData().get_exp
         },
     },
-    mounted(){
-       const audio=this.audio
-            audio.loop=true
-            audio.autoplay=true
-            // audio.play()
-    },
-  unmounted(){
-    const audio=this.audio
-            audio.pause()
-  }  
+//     mounted(){
+//     //    const audio=this.audio
+//             // audio.loop=true
+//             // audio.autoplay=true
+//             // audio.play()
+//     },
+//   unmounted(){
+//     // const audio=this.audio
+//     //         audio.pause()
+//   }  
 }
 const harvestDataPinia=harvest
 </script>

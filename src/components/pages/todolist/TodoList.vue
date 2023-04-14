@@ -1,7 +1,7 @@
 <script setup>
 //setup properties in script tag are use when u want to import some assets
 import weejio from '../../../assets/winter.mp4'
-import xolodno from '../../../assets/xolodno.mp3'
+// import xolodno from '../../../assets/xolodno.mp3'
 </script>
 <script>
 document.addEventListener('mousemove',(e)=>{
@@ -39,16 +39,16 @@ export default {
             return this.lists
         }
     },
-    mounted(){
-       const audio=this.audio
-            audio.loop=true
-            audio.autoplay=true
-            // audio.play()
-    },
-  unmounted(){
-    const audio=this.audio
-            audio.pause()
-  }  
+    // mounted(){
+    // //    const audio=this.audio
+    // //         audio.loop=true
+    // //         audio.autoplay=true
+    //         // audio.play()
+    // },
+//   unmounted(){
+//     // const audio=this.audio
+//     //         audio.pause()
+//   }  
 }
 </script>
 <template>
