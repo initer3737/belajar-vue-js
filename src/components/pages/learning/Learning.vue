@@ -145,7 +145,7 @@ export default{
 
 <template>
       <div class="wrapper">
-   <h1>{{ city === '' ?'region : wates city yogyakarta':validateRegion()}}</h1>
+   <h1>{{ city === '' ?'region : wates city yogyakarta ,nanggulan':validateRegion()}}</h1>
    <h1>{{ getJam }}</h1>
    <p>20 &deg;F</p>
    <p>belajar vue js</p>
