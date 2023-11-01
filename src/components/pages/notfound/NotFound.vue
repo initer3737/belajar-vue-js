@@ -1,6 +1,6 @@
 <script setup>
 import { harvest } from '../../globalstate/harvestmoon';
-import weejio from '../../../assets/weejio.mp4'
+import weejio from '../../../assets/weejio2.mp4'
 document.addEventListener('mousemove',(e)=>{
     const target=document.getElementById('weejio')
     target.style.width=-100+e.pageX/100+'vw'
